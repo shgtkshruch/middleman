@@ -1,0 +1,26 @@
+{
+  "name": "middleman",
+  "version": "0.0.0",
+  "description": "my middleman package",
+  "main": "index.js",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-bower-task": "~0.3.4",
+    "grunt-prettify": "~0.3.4",
+    "grunt-contrib-htmlmin": "~0.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shgtkshruch/middleman"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/shgtkshruch/middleman/issues"
+  },
+  "homepage": "https://github.com/shgtkshruch/middleman"
+}

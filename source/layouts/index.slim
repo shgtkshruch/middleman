@@ -1,0 +1,21 @@
+doctype 5
+/[if lt IE 7]
+  <html lang="ja" class="no-js ie6">
+
+/[if IE 7]
+  <html lang="ja" class="no-js ie7">
+
+/[if IE 8]
+  <html lang="ja" class="no-js ie8">
+html lang="ja" class="no-js"
+  head
+    = partial "partials/head"
+  body
+    == yield
+
+  / grunt-contrib-watch
+    script src="//localhost:35729/livereload.js"
+
+  / browser_sync setting
+    script src='http://192.168.11.2:3000/socket.io/socket.io.js'
+    script src='http://192.168.11.2:3001/browser-sync-client.min.js'
