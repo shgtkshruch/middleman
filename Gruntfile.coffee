@@ -3,6 +3,8 @@ module.exports = (grunt) ->
 
   grunt.initConfig
   
+    # grunt-bower-task
+    # https://github.com/yatskevich/grunt-bower-task
     bower:
       install:
         options:
@@ -12,6 +14,20 @@ module.exports = (grunt) ->
           verbose: false
           clearnTargetDir: true
           cleanBowerDir: true
+
+    # grunt-browser-sync
+    # https://github.com/shakyshane/grunt-browser-sync
+    browser_sync:
+      files:
+        src: ['build/index.html', 'build/stylesheets/style.css']
+      options:
+        server:
+          baseDir: 'build'
+        watchTask: false
+        ghostMode:
+          scroll: true
+          links: true
+          forms: true
 
     # grunt-prettify
     # https://github.com/jonschlinkert/grunt-prettify
@@ -54,4 +70,8 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-contrib-htmlmin'
     grunt.loadNpmTasks 'grunt-prettify'
     grunt.task.run 'htmlmin', 'prettify'
+
+  grunt.registerTask 'sy', [], ->
+    grunt.loadNpmTasks 'grunt-browser-sync'
+    grunt.task.run 'browser_sync'
 
