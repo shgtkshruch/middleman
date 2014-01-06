@@ -2,13 +2,13 @@ module.exports = (grunt) ->
   'use strict'
 
   grunt.initConfig
-  
+
     # grunt-bower-task
     # https://github.com/yatskevich/grunt-bower-task
     bower:
       install:
         options:
-          targetDir: './source/lib'
+          targetDir: './source'
           layout: 'byType'
           install: true
           verbose: false
@@ -71,7 +71,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-prettify'
     grunt.task.run 'htmlmin', 'prettify'
 
-  grunt.registerTask 'sy', [], ->
+  grunt.registerTask 's', [], ->
     grunt.loadNpmTasks 'grunt-browser-sync'
     grunt.task.run 'browser_sync'
 
