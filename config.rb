@@ -23,9 +23,11 @@ I18n.enforce_available_locales = false
 ###
 
 # Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+compass_config do |config|
+  # config.output_style = :compact
+  # Disable line comments even in development
+  config.line_comments = false 
+end
 
 ###
 # Page options, layouts, aliases and proxies
