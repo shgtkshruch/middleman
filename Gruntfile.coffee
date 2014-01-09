@@ -29,6 +29,15 @@ module.exports = (grunt) ->
           links: true
           forms: true
 
+    # grunt-contrib-connect
+    # https://github.com/gruntjs/grunt-contrib-connect
+    connect:
+      server:
+        options:
+          port: 9001
+          base: 'build'
+          open: 'http://localhost:9001/'
+
     # grunt-prettify
     # https://github.com/jonschlinkert/grunt-prettify
     prettify:
@@ -62,6 +71,14 @@ module.exports = (grunt) ->
         src: '**/*.html'
         dest: 'build'
 
+    # grunt-contrib-watch
+    # https://github.com/gruntjs/grunt-contrib-watch
+    watch:
+      options:
+        spawn: false
+        atBegin: false
+        livereload: true
+
   grunt.registerTask 'default', [], ->
     grunt.loadNpmTasks 'grunt-bower-task'
     grunt.task.run 'bower'
@@ -73,5 +90,10 @@ module.exports = (grunt) ->
 
   grunt.registerTask 's', [], ->
     grunt.loadNpmTasks 'grunt-browser-sync'
-    grunt.task.run 'browser_sync'
+    grunt.loadNpmTasks 'grunt-contrib-watch'
+    grunt.task.run 'browser_sync', 'watch'
 
+  grunt.registerTask 'c', [], ->
+    grunt.loadNpmTasks 'grunt-contrib-connect'
+    grunt.loadNpmTasks 'grunt-contrib-watch'
+    grunt.task.run 'connect', 'watch'
