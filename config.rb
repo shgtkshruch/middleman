@@ -3,18 +3,23 @@
 ###
 
 require 'slim'
+# Slim::Engine.disable_option_validator!
+
+# Set template language
+# set :slim, :layout_engine => :slim
 
 # Set slim-lang output style
 Slim::Engine.set_default_options :pretty => true, :sort_attrs => false
 
-# Set shortcut
-Slim::Engine.set_default_options :shortcut => {
-  '#' => {:tag => 'div', :attr => 'id'},
-  '.' => {:tag => 'div', :attr => 'class'},
-  '&' => {:tag => 'input', :attr => 'type'}
-}
 
-#[deprecated] I18n.enforce_available_locales will default to true in the future. 
+# Set shortcut
+# Slim::Engine.set_default_options :shortcut => {
+#   '#' => {:tag => 'div', :attr => 'id'},
+#   '.' => {:tag => 'div', :attr => 'class'},
+#   '&' => {:tag => 'input', :attr => 'type'}
+# }
+
+#[deprecated] I18n.enforce_available_locales will default to true in the future.
 #If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
 I18n.enforce_available_locales = false
 
@@ -26,7 +31,7 @@ I18n.enforce_available_locales = false
 compass_config do |config|
   # config.output_style = :compact
   # Disable line comments even in development
-  config.line_comments = false 
+  config.line_comments = false
 end
 
 ###
@@ -56,7 +61,7 @@ page "/*", :layout => "index"
 ###
 
 # Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
+activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
 activate :livereload
@@ -68,11 +73,19 @@ activate :livereload
 #   end
 # end
 
+set :relative_links, true
+
 set :css_dir, 'stylesheets'
 
 set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
+
+set :layout_dir, 'layouts'
+
+set :partials_dir, 'partials'
+
+set :data_dir, 'data'
 
 # Build-specific configuration
 configure :build do
@@ -86,7 +99,7 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
