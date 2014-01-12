@@ -32,6 +32,9 @@ compass_config do |config|
   # config.output_style = :compact
   # Disable line comments even in development
   config.line_comments = false
+  config.sass_options = {
+    :style => :expanded
+  }
 end
 
 ###

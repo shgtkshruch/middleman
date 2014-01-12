@@ -38,6 +38,18 @@ module.exports = (grunt) ->
           base: 'build'
           open: 'http://localhost:9001/'
 
+    # grunt-csscomb
+    # https://github.com/csscomb/grunt-csscomb
+    # https://github.com/csscomb/csscomb.js
+    csscomb:
+      options:
+        config: 'csscomb.json'
+      dist:
+        expand: true
+        cwd: 'build/stylesheets/'
+        src: ['*.css']
+        dest: 'build/stylesheets'
+
     # grunt-prettify
     # https://github.com/jonschlinkert/grunt-prettify
     prettify:
@@ -84,16 +96,17 @@ module.exports = (grunt) ->
     grunt.task.run 'bower'
 
   grunt.registerTask 'p', [], ->
-    grunt.loadNpmTasks 'grunt-contrib-htmlmin'
+    grunt.loadNpmTasks 'grunt-csscomb'
     grunt.loadNpmTasks 'grunt-prettify'
-    grunt.task.run 'htmlmin', 'prettify'
+    grunt.loadNpmTasks 'grunt-contrib-htmlmin'
+    grunt.task.run 'htmlmin', 'prettify', 'csscomb'
 
   grunt.registerTask 's', [], ->
     grunt.loadNpmTasks 'grunt-browser-sync'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.task.run 'browser_sync', 'watch'
 
-  grunt.registerTask 'c', [], ->
+  grunt.registerTask 'w', [], ->
     grunt.loadNpmTasks 'grunt-contrib-connect'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.task.run 'connect', 'watch'
