@@ -3,15 +3,11 @@
 ###
 
 require 'slim'
-# Slim::Engine.disable_option_validator!
-
-# Set template language
-# set :slim, :layout_engine => :slim
-
 # Set slim-lang output style
 Slim::Engine.set_default_options :pretty => true, :sort_attrs => false
-
-
+# Slim::Engine.disable_option_validator!
+# Set template language
+# set :slim, :layout_engine => :slim
 # Set shortcut
 # Slim::Engine.set_default_options :shortcut => {
 #   '#' => {:tag => 'div', :attr => 'id'},
@@ -19,9 +15,32 @@ Slim::Engine.set_default_options :pretty => true, :sort_attrs => false
 #   '&' => {:tag => 'input', :attr => 'type'}
 # }
 
-#[deprecated] I18n.enforce_available_locales will default to true in the future.
-#If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
-I18n.enforce_available_locales = false
+# A simple and lightweight mixin library for Sass.
+# http://bourbon.io/
+require "bourbon"
+
+# Adds glob-based imports to Sass
+# https://github.com/chriseppstein/sass-globbing
+# require "sass-globbing"
+
+# SassyLists is a Compass Extension
+# http://sassylists.com/
+require "SassyLists"
+
+# Responsive grids for Compass.
+# http://susy.oddbird.net/
+# require "susy"
+
+# A lightweight semantic grid framework
+# for Sass and Bourbon
+# http://neat.bourbon.io/
+# require "neat"
+
+# bootstrap-sass
+# Official port of Bootstrap to Sass, ready to roll.
+# https://github.com/twbs/bootstrap-sass
+# require "bootstrap-sass"
+
 
 ###
 # Compass
@@ -63,6 +82,9 @@ page "/*", :layout => "index"
 # Helpers
 ###
 
+#[deprecated] I18n.enforce_available_locales will default to true in the future.
+#If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+I18n.enforce_available_locales = false
 # Automatic image dimensions on image_tag helper
 activate :automatic_image_sizes
 
