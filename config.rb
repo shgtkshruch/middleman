@@ -8,12 +8,18 @@ Slim::Engine.set_default_options :pretty => true, :sort_attrs => false
 # Slim::Engine.disable_option_validator!
 # Set template language
 # set :slim, :layout_engine => :slim
+
 # Set shortcut
 # Slim::Engine.set_default_options :shortcut => {
 #   '#' => {:tag => 'div', :attr => 'id'},
 #   '.' => {:tag => 'div', :attr => 'class'},
 #   '&' => {:tag => 'input', :attr => 'type'}
 # }
+
+
+###
+# Sass libraries and Compass extenshons
+###
 
 # A simple and lightweight mixin library for Sass.
 # http://bourbon.io/
@@ -26,6 +32,10 @@ require "bourbon"
 # SassyLists is a Compass Extension
 # http://sassylists.com/
 require "SassyLists"
+
+# Sass utilities for the frontend laborer
+# http://davidtheclark.github.io/scut/
+# require "scut"
 
 # Responsive grids for Compass.
 # http://susy.oddbird.net/

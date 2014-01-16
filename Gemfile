@@ -25,6 +25,10 @@ gem "bourbon"
 # http://sassylists.com/
 gem "SassyLists"
 
+# Sass utilities for the frontend laborer
+# http://davidtheclark.github.io/scut/
+# gem "scut"
+
 # Responsive grids for Compass.
 # http://susy.oddbird.net/
 # gem "susy"
