@@ -75,7 +75,7 @@ module.exports = (grunt) ->
     # https://github.com/gruntjs/gruntcontrib-htmlmin
     htmlmin:
       options:
-        removeComments: true
+        removeComments: false
         collapseWhitespace: true
       files:
         expand: true

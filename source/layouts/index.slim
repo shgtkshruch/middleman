@@ -9,8 +9,9 @@ doctype 5
   <html lang="ja" class="no-js ie8">
 html lang="ja" class="no-js"
   head
-    = partial "partials/head"
-  body
+    = partial "head"
+
+  body class=("#{current_page.data.page_class}" if current_page.data.page_class)
     == yield
 
   / grunt-contrib-watch
